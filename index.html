@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pawon Buk Nur</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,sans-serif;
+  background:#fbf8ff;
+  color:#43364d;
+}
+header{
+  position:sticky;top:0;z-index:10;
+  background:#fffaff;
+  padding:18px 7%;
+  display:flex;justify-content:space-between;align-items:center;
+  box-shadow:0 2px 15px #8f6bb51c;
+}
+.logo{font-size:23px;font-weight:bold;color:#704c91}
+nav a{
+  text-decoration:none;color:#604875;font-weight:bold;
+  margin-left:22px;
+}
+.hero{
+  min-height:90vh;padding:70px 8%;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:40px;
+  background:linear-gradient(135deg,#fbf8ff,#eee3fa);
+}
+.hero-text{max-width:600px}
+.badge{
+  color:#79529b;font-weight:bold;letter-spacing:2px;
+  margin-bottom:15px;
+}
+h1{font-size:58px;line-height:1.05;margin-bottom:20px}
+h1 span{color:#9a75bd}
+.hero p{font-size:18px;color:#75677d;line-height:1.7}
+.buttons{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-block;padding:13px 20px;border-radius:12px;
+  text-decoration:none;border:none;cursor:pointer;font-weight:bold;
+}
+.primary{background:#9873bd;color:white}
+.secondary{background:white;color:#765193;border:1px solid #ddcceb}
+.food{
+  width:330px;height:330px;border-radius:50%;
+  background:#e5d5f5;display:flex;align-items:center;
+  justify-content:center;position:relative;
+  box-shadow:0 20px 40px #74509522;
+}
+.bowl{
+  width:220px;height:110px;background:#a47bc4;
+  border-radius:20px 20px 80px 80px;position:relative;
+}
+.bowl:before{
+  content:"";position:absolute;left:10px;top:-32px;
+  width:200px;height:65px;border-radius:50%;
+  background:#fff4dc;border:8px solid #bd98d5;
+}
+.lontong{
+  position:absolute;width:58px;height:40px;
+  background:#fff0c9;border-radius:18px;top:-22px;left:70px;
+  transform:rotate(-10deg);
+}
+.lontong.two{left:125px;transform:rotate(12deg)}
+.sauce{
+  position:absolute;width:34px;height:20px;
+  background:#a9695d;border-radius:50%;top:5px;left:150px;
+}
+.section{padding:80px 8%}
+.section h2{
+  font-size:38px;color:#66447e;margin-bottom:12px
+}
+.subtitle{color:#7d7084;margin-bottom:30px}
+.menu-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:25px;
+}
+.card{
+  background:white;border:1px solid #eadff1;border-radius:20px;
+  overflow:hidden;box-shadow:0 10px 30px #76509512;
+}
+.card-top{
+  height:170px;background:linear-gradient(135deg,#e8daf5,#f5e8f1);
+  display:flex;align-items:center;justify-content:center;font-size:70px;
+}
+.card-body{padding:24px}
+.card h3{font-size:22px;color:#634277;margin-bottom:8px}
+.card p{color:#786c80;line-height:1.6;margin-bottom:18px}
+.price{color:#865fa9;font-weight:bold;font-size:20px}
+.manage{
+  background:#f1e9fa;
+}
+.features{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+}
+.feature{
+  background:white;padding:25px;border-radius:18px;
+  border:1px solid #e6d8ef;
+}
+.feature .icon{font-size:34px}
+.feature h3{margin:12px 0 8px;color:#67447e}
+.feature p{color:#7a6d81;line-height:1.5}
+.report-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+  margin:25px 0;
+}
+.metric{
+  background:white;padding:25px;border-radius:18px;
+  border:1px solid #e7dced;
+}
+.metric small{color:#7d7084}
+.metric strong{display:block;font-size:27px;color:#704991;margin-top:7px}
+table{
+  width:100%;border-collapse:collapse;background:white;
+  border-radius:15px;overflow:hidden;
+}
+th,td{padding:15px;text-align:left;border-bottom:1px solid #eee2f2}
+th{background:#eee4f7;color:#634477}
+.about{
+  background:#f2eafa;
+}
+.about-box{
+  max-width:800px;background:white;padding:30px;
+  border-radius:20px;border:1px solid #e3d6ed;
+}
+.contact{
+  display:inline-block;margin-top:12px;
+  color:#76509a;font-size:20px;font-weight:bold;
+  text-decoration:none;
+}
+footer{
+  background:#65427f;color:white;text-align:center;padding:35px 20px;
+}
+footer a{color:white;text-decoration:none;font-weight:bold}
+@media(max-width:800px){
+  nav{display:none}
+  .hero{flex-direction:column;text-align:center;padding-top:55px}
+  h1{font-size:42px}
+  .buttons{justify-content:center}
+  .menu-grid,.features,.report-grid{grid-template-columns:1fr}
+  .food{width:280px;height:280px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🍲 Pawon Buk Nur</div>
+  <nav>
+    <a href="#home">Beranda</a>
+    <a href="#menu">Menu</a>
+    <a href="#kelola">Pengelolaan</a>
+    <a href="#laporan">Laporan</a>
+    <a href="#tentang">Tentang</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-text">
+    <div class="badge">SISTEM PENDUKUNG UMKM</div>
+    <h1>Rasa Rumahan,<br><span>Tampilan Kekinian.</span></h1>
+    <p>
+      Selamat datang di website Pawon Buk Nur.
+      Temukan menu rumahan yang lezat sekaligus
+      informasi sederhana untuk membantu pengelolaan usaha.
+    </p>
+
+    <div class="buttons">
+      <a class="btn primary" href="#menu">Lihat Menu</a>
+      <a class="btn secondary"
+         href="https://wa.me/6285370522216"
+         target="_blank">
+         WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <div class="food">
+    <div class="bowl">
+      <div class="lontong"></div>
+      <div class="lontong two"></div>
+      <div class="sauce"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="menu">
+  <h2>Menu Pawon Buk Nur</h2>
+  <p class="subtitle">Menu pilihan dengan cita rasa rumahan.</p>
+
+  <div class="menu-grid">
+
+    <div class="card">
+      <div class="card-top">🍜</div>
+      <div class="card-body">
+        <h3>Mie Bumbu Kacang</h3>
+        <p>
+          Mie dengan bumbu kacang gurih dan cita rasa
+          khas masakan rumahan.
+        </p>
+        <div class="price">Rp10.000</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">🥣</div>
+      <div class="card-body">
+        <h3>Lontong Sayur</h3>
+        <p>
+          Lontong dengan kuah sayur yang hangat,
+          gurih, dan cocok untuk sarapan.
+        </p>
+        <div class="price">Rp12.000</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section manage" id="kelola">
+  <h2>Pengelolaan Usaha</h2>
+  <p class="subtitle">
+    Fitur yang dapat mendukung pengembangan usaha Pawon Buk Nur.
+  </p>
+
+  <div class="features">
+
+    <div class="feature">
+      <div class="icon">📦</div>
+      <h3>Katalog Menu</h3>
+      <p>
+        Menampilkan daftar makanan dan harga
+        secara lebih rapi.
+      </p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">🛒</div>
+      <h3>Pesanan</h3>
+      <p>
+        Membantu mencatat transaksi dan pesanan
+        pelanggan.
+      </p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">👥</div>
+      <h3>Pelanggan</h3>
+      <p>
+        Data pelanggan dapat dikelola berdasarkan
+        transaksi.
+      </p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">📊</div>
+      <h3>Laporan</h3>
+      <p>
+        Menampilkan ringkasan penjualan dan omzet
+        usaha.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="laporan">
+  <h2>Laporan Omzet</h2>
+  <p class="subtitle">
+    <b>Data Simulasi</b> untuk kebutuhan project.
+  </p>
+
+  <div class="report-grid">
+
+    <div class="metric">
+      <small>Total Pesanan</small>
+      <strong>180</strong>
+    </div>
+
+    <div class="metric">
+      <small>Total Omzet</small>
+      <strong>Rp2.020.000</strong>
+    </div>
+
+    <div class="metric">
+      <small>Rata-rata Transaksi</small>
+      <strong>±Rp11.222</strong>
+    </div>
+
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Periode</th>
+        <th>Pesanan</th>
+        <th>Omzet</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Minggu 1</td>
+        <td>35</td>
+        <td>Rp385.000</td>
+      </tr>
+      <tr>
+        <td>Minggu 2</td>
+        <td>42</td>
+        <td>Rp470.000</td>
+      </tr>
+      <tr>
+        <td>Minggu 3</td>
+        <td>48</td>
+        <td>Rp540.000</td>
+      </tr>
+      <tr>
+        <td>Minggu 4</td>
+        <td>55</td>
+        <td>Rp625.000</td>
+      </tr>
+      <tr>
+        <th>Total</th>
+        <th>180</th>
+        <th>Rp2.020.000</th>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section about" id="tentang">
+  <h2>Tentang Pawon Buk Nur</h2>
+
+  <div class="about-box">
+    <p>
+      Pawon Buk Nur merupakan project website untuk membantu
+      promosi dan pengembangan usaha makanan rumahan.
+      Website menggunakan identitas visual ungu pastel,
+      katalog menu, informasi kontak, serta laporan omzet
+      sederhana.
+    </p>
+
+    <br>
+
+    <p><b>WhatsApp / Telepon:</b></p>
+
+    <a class="contact"
+       href="https://wa.me/6285370522216"
+       target="_blank">
+       +62 853-7052-2216
+    </a>
+  </div>
+</section>
+
+<footer>
+  <h3>🍲 Pawon Buk Nur</h3>
+  <p>Website Project Pengembangan UMKM</p>
+  <br>
+  <a href="https://wa.me/6285370522216" target="_blank">
+    WhatsApp: +62 853-7052-2216
+  </a>
+  <br><br>
+  <small>© 2026 Pawon Buk Nur</small>
+</footer>
+
+</body>
+</html>
